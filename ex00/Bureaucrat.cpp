@@ -2,10 +2,17 @@
 
 Bureaucrat::Bureaucrat(): name("Default"){
     this->grade = 75;
+    
 }
 
 Bureaucrat::Bureaucrat(int grad): name("Default"){
     this->grade = grad;
+
+    if (this->grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+
+    if(this->grade > 150)
+        throw Bureaucrat::GradeTooLowException();
 }
 Bureaucrat::Bureaucrat(const std::string& str, int grad) : name(str){
     this->grade = grad;
