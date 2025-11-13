@@ -11,11 +11,11 @@ int main(void)
 		std::cout << "\033[34mTesting\033[0m" << std::endl;
 		std::cout << a;
 
-		try // in my opinion would make more sense if the try-catch blocks would have been inside the class itself already
+		try 
 		{
 		    a->incrementGrade();
 		}
-		catch(Bureaucrat::GradeTooHighException &e) // the try-catch blocks inside the class are commented out but fully functional
+		catch(Bureaucrat::GradeTooHighException &e)
 		{
 			std::cerr << "\033[33mIncrementing grade of " << a->getName() <<
 			" failed: " << e.what() << "\033[0m" << std::endl;
