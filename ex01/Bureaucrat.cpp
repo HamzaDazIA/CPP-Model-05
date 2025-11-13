@@ -66,24 +66,23 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &out , const Bureaucrat &obj)
 {
-    out << obj.getName() << " , bureaucrat grade " << obj.getGrade();
+    out << obj.getName() << " , bureaucrat grade " << obj.getGrade() << ".";
     return (out);
 }
 
 
 void Bureaucrat::incrementGrade()
 {
+    if (this->grade - 1 < 1)
+        throw Bureaucrat::GradeTooHighException();
     this->grade--;
-
-    if (this->grade < 1)
-        throw Bureaucrat::GradeTooHighException(); 
-
 }
+
 void Bureaucrat::decrementGrade()
 {
+    if(this->grade + 1 > 150)
+        throw Bureaucrat::GradeTooLowException();
     this->grade++;
-    if(this->grade > 150)
-        throw Bureaucrat::GradeTooLowException();  
 }
 
 void Bureaucrat::signForm(Form &form)

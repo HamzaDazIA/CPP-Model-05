@@ -2,7 +2,7 @@ SRC = Bureaucrat.cpp main.cpp  Form.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
-HEADER = Bureaucrat.hpp Form.cpp
+HEADER = Bureaucrat.hpp Form.hpp
 
 NAME = Bureaucrat
 
