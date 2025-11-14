@@ -3,11 +3,13 @@
 
 AForm::AForm() : name("Default"), grade_signd(50), exec_signd(50) {
     this->signd = false;
+    this->target = "Default";
 }
 
 AForm::AForm(const std::string name, const int sign_grade, const int execute_grade 
-        , const std::string target) : name(name) , grade_signd(sign_grade), exec_signd(execute_grade) , target(target){
+        ) : name(name) , grade_signd(sign_grade), exec_signd(execute_grade){
     this->signd = false;
+    this->target = "Default";
     if (sign_grade < 1 || execute_grade < 1)
         throw AForm::GradeTooHighException();
     if (sign_grade > 150 || execute_grade > 150)
@@ -17,6 +19,7 @@ AForm::AForm(const std::string name, const int sign_grade, const int execute_gra
 AForm:: AForm (const AForm &obj) : name(obj.name) , grade_signd(obj.grade_signd), exec_signd(obj.exec_signd)
 {
     this->signd = obj.signd;
+    this->setTarget(obj.getTarget());
 }
 
 
@@ -24,6 +27,7 @@ AForm &AForm::operator=(const AForm &obj)
 {
     if (this != &obj) {
         this->signd = obj.signd;
+        this->setTarget(obj.getTarget());
     }
     return (*this);
 }
@@ -82,4 +86,10 @@ int AForm::getExecSignd() const
 const std::string & AForm::getTarget() const
 {
     return (this->target);
+}
+
+
+void AForm::setTarget(std::string traget)
+{
+    this->target = traget;
 }
