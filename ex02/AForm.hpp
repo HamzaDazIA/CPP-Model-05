@@ -25,7 +25,7 @@ class AForm {
         int getGradeSignd() const;
         int getExecSignd() const;
         const std::string & getTarget() const;
-        ~AForm();
+        virtual~AForm();
 
         class GradeTooHighException : public std::exception
         {
@@ -37,6 +37,13 @@ class AForm {
             public:
                 virtual const char *what() const throw();
         };
+
+        class FormIsNotSigndException : public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        }
+        
 
 };
 

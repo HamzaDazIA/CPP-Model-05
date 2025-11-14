@@ -22,7 +22,9 @@ AForm:: AForm (const AForm &obj) : name(obj.name) , grade_signd(obj.grade_signd)
 
 AForm &AForm::operator=(const AForm &obj)
 {
-    this->signd = obj.signd;
+    if (this != &obj) {
+        this->signd = obj.signd;
+    }
     return (*this);
 }
 
@@ -36,6 +38,11 @@ const char *AForm::GradeTooHighException::what() const throw()
 const char *AForm::GradeTooLowException::what() const throw()
 {
     return ("Grade is too low");
+}
+
+const char *AForm::FormIsNotSigndException::what() const throw()
+{
+    return ("Form is not signd");
 }
 
 void AForm::beSigned(const Bureaucrat &obj)
