@@ -26,7 +26,7 @@ class AForm {
         int getGradeSignd() const;
         int getExecSignd() const;
         const std::string & getTarget() const;
-        virtual~AForm();
+        virtual ~AForm();
         void setTarget(std::string target);
         class GradeTooHighException : public std::exception
         {
