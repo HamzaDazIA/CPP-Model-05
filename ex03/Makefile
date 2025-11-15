@@ -1,5 +1,5 @@
 
-NAME = ex02
+NAME = ex03
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
